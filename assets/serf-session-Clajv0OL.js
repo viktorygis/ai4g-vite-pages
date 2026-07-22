@@ -1,0 +1,1 @@
+import{d as e,t}from"./main-H_sd6AEc.js";import{n,t as r}from"./session-animations-CLm8TH_I.js";var i=e((()=>{n(),document.addEventListener(`DOMContentLoaded`,function(){let e=new r({type:`simple`});e.init(),window.addEventListener(`beforeunload`,()=>e.destroy())})}));t(),i();
