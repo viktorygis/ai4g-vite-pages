@@ -1,0 +1,1 @@
+import"./main-CURaMoVQ.js";import{t as e}from"./session-animations-sABoIttJ.js";document.addEventListener(`DOMContentLoaded`,function(){let t=new e({type:`simple`});t.init(),window.addEventListener(`beforeunload`,()=>t.destroy())});
