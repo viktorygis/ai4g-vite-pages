@@ -1,0 +1,15 @@
+import{a as e,c as t,d as n,i as r,n as i,o as a,r as o,s,t as c}from"./main-Cx8IBN6I.js";var l=n((()=>{s(),a(),i(),t.use([r,o,e]),(async function(){let n=document.getElementById(`filters-scroll`),i=document.getElementById(`categories-container`);if(!n||!i)return;i.innerHTML=`<div class="vozmozhnosti__loading">Загрузка…</div>`;try{let e=await fetch(`/data/vozmozhnosti.json`);if(!e.ok)throw Error(`Ошибка загрузки`);a(await e.json())}catch(e){i.innerHTML=`<div class="vozmozhnosti__error">Не удалось загрузить данные</div>`,console.error(e)}function a(e){i.innerHTML=``;let t=document.createDocumentFragment(),r=document.createDocumentFragment();e.forEach(e=>{let n=c(e);r.appendChild(n);let i=document.createElement(`a`);i.className=`vozmozhnosti__filter-chip swiper-slide`,i.href=`#category-${e.id}`,i.textContent=e.title,i.setAttribute(`aria-label`,`Перейти к категории ${e.title}`),t.appendChild(i)}),n.appendChild(t),i.appendChild(r),s(),l(),u()}function s(){new t(`.vozmozhnosti__filters`,{modules:[o,r,e],slidesPerView:`auto`,spaceBetween:12,freeMode:{enabled:!0,momentum:!0,sticky:!1},loop:!1,centeredSlides:!1,grabCursor:!0,mousewheel:{forceToAxis:!0,sensitivity:.5},navigation:{nextEl:`.vozmozhnosti__filters .vozmozhnosti__scroll-btn--right`,prevEl:`.vozmozhnosti__filters .vozmozhnosti__scroll-btn--left`},breakpoints:{768:{spaceBetween:10}}})}function c(e){let t=document.createElement(`section`);return t.id=`category-${e.id}`,t.className=`vozmozhnosti__category-section`,t.setAttribute(`aria-labelledby`,`cat-title-${e.id}`),t.innerHTML=`
+      <div class="vozmozhnosti__category-header">
+        <h2 class="vozmozhnosti__category-title" id="cat-title-${e.id}">${e.subtitle}</h2>
+        <p class="vozmozhnosti__category-toptext">${e.topText}</p>
+        <p class="vozmozhnosti__category-desc">${e.description}</p>
+      </div>
+    <div class="vozmozhnosti__grid">${e.items.map(e=>`
+      <div class="vozmozhnosti__item">
+        <img src="${e.img}" alt="${e.name}" loading="lazy" />
+        <div class="vozmozhnosti__text">
+          <h3 class="vozmozhnosti__name">${e.name}</h3>
+          <div class="vozmozhnosti__item-desc">${e.desc}</div>
+        </div>
+      </div>
+    `).join(``)}</div>`,t}function l(){let e=document.querySelectorAll(`.vozmozhnosti__category-section`),t=document.querySelectorAll(`.vozmozhnosti__filter-chip`),n=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){let n=e.target.id;t.forEach(e=>{e.classList.remove(`active`),e.removeAttribute(`aria-current`)});let r=`#${n}`,i=Array.from(t).find(e=>e.getAttribute(`href`)===r&&!e.classList.contains(`swiper-slide-duplicate`));i&&(i.classList.add(`active`),i.setAttribute(`aria-current`,`true`))}})},{rootMargin:`-50% 0px -50% 0px`,threshold:0});e.forEach(e=>n.observe(e))}function u(){document.querySelectorAll(`.vozmozhnosti__filter-chip`).forEach(e=>{e.addEventListener(`click`,function(e){e.preventDefault();let t=this.getAttribute(`href`).slice(1),n=document.getElementById(t);n&&n.scrollIntoView({behavior:`smooth`,block:`start`,inline:`nearest`})})})}})()}));c(),l();
