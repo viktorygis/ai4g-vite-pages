@@ -1,0 +1,1 @@
+import"./main-DR3Kfg44.js";import{t as e}from"./session-animations-Zn8jDS4Q.js";document.addEventListener(`DOMContentLoaded`,function(){let t=new e({type:`cascade`});t.init(),window.addEventListener(`beforeunload`,()=>t.destroy())});
